@@ -18,59 +18,59 @@ public class Movie {
     private String director;
 
     public Integer getId() {
-	return id;
+        return id;
     }
 
     public void setId(Integer id) {
-	this.id = id;
+        this.id = id;
     }
 
     public String getTitle() {
-	return title;
+        return title;
     }
 
     public void setTitle(String title) {
-	this.title = title;
+        this.title = title;
     }
 
     public String getYear() {
-	return year;
+        return year;
     }
 
     public void setYear(String year) {
-	this.year = year;
+        this.year = year;
     }
 
     public String getRated() {
-	return rated;
+        return rated;
     }
 
     public void setRated(String rated) {
-	this.rated = rated;
+        this.rated = rated;
     }
 
     public String getRuntime() {
-	return runtime;
+        return runtime;
     }
 
     public void setRuntime(String runtime) {
-	this.runtime = runtime;
+        this.runtime = runtime;
     }
 
     public String getGenre() {
-	return genre;
+        return genre;
     }
 
     public void setGenre(String genre) {
-	this.genre = genre;
+        this.genre = genre;
     }
 
     public String getDirector() {
-	return director;
+        return director;
     }
 
     public void setDirector(String director) {
-	this.director = director;
+        this.director = director;
     }
 
 }

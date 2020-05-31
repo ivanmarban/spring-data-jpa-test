@@ -61,55 +61,55 @@ public class AppConfig {
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-	LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-	em.setDataSource(dataSource());
-	em.setPackagesToScan(new String[] { "com.github.ivanmarban" });
+        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        em.setDataSource(dataSource());
+        em.setPackagesToScan(new String[]{"com.github.ivanmarban"});
 
-	JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-	em.setJpaVendorAdapter(vendorAdapter);
-	em.setJpaProperties(jpaProperties());
+        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        em.setJpaVendorAdapter(vendorAdapter);
+        em.setJpaProperties(jpaProperties());
 
-	return em;
+        return em;
     }
 
     @Bean
     public DataSource dataSource() {
-	DriverManagerDataSource dataSource = new DriverManagerDataSource();
-	dataSource.setDriverClassName(dbDriver);
-	dataSource.setUrl(dbUrl);
-	dataSource.setUsername(dbUsername);
-	dataSource.setPassword(dbPassword);
-	return dataSource;
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName(dbDriver);
+        dataSource.setUrl(dbUrl);
+        dataSource.setUsername(dbUsername);
+        dataSource.setPassword(dbPassword);
+        return dataSource;
     }
 
     @Bean
     public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
-	JpaTransactionManager transactionManager = new JpaTransactionManager();
-	transactionManager.setEntityManagerFactory(emf);
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(emf);
 
-	return transactionManager;
+        return transactionManager;
     }
 
     @Bean
     public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
-	return new PersistenceExceptionTranslationPostProcessor();
+        return new PersistenceExceptionTranslationPostProcessor();
     }
 
     private Properties jpaProperties() {
 
-	Properties jpaProperties = new Properties();
-	jpaProperties.put(PROPERTY_NAME_HIBERNATE_DIALECT, hibernateDialect);
-	jpaProperties.put(PROPERTY_NAME_HIBERNATE_FORMAT_SQL, hibernateFormatSql);
-	jpaProperties.put(PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO, hibernateHbm2ddAuto);
-	jpaProperties.put(PROPERTY_NAME_HIBERNATE_NAMING_STRATEGY, hibernateEjbNamingStrategy);
-	jpaProperties.put(PROPERTY_NAME_HIBERNATE_SHOW_SQL, hibernateShowSql);
+        Properties jpaProperties = new Properties();
+        jpaProperties.put(PROPERTY_NAME_HIBERNATE_DIALECT, hibernateDialect);
+        jpaProperties.put(PROPERTY_NAME_HIBERNATE_FORMAT_SQL, hibernateFormatSql);
+        jpaProperties.put(PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO, hibernateHbm2ddAuto);
+        jpaProperties.put(PROPERTY_NAME_HIBERNATE_NAMING_STRATEGY, hibernateEjbNamingStrategy);
+        jpaProperties.put(PROPERTY_NAME_HIBERNATE_SHOW_SQL, hibernateShowSql);
 
-	return jpaProperties;
+        return jpaProperties;
     }
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertyConfigInDev() {
-	return new PropertySourcesPlaceholderConfigurer();
+        return new PropertySourcesPlaceholderConfigurer();
     }
 
 }
